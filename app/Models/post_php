@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Models;
+
+class Post 
+{
+    private static $blog_posts = [
+        [
+            "title"  => "Judul Post Pertama",
+            "slug" => "judul-post-pertama",
+            "author" => "Nurul Atika Zulfa",
+            "body" => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia dolor esse id consectetur dicta aliquid, reprehenderit quo nobis ea repudiandae, inventore doloremque quidem architecto. Sequi quae impedit cupiditate enim odio eaque eius asperiores consequatur, quisquam dolores error architecto perferendis quo commodi nihil nulla assumenda minus, ipsa odit iusto deserunt incidunt similique? Delectus, natus incidunt in ipsam voluptas quod est excepturi ex iure sit quam magnam facilis cum obcaecati deleniti at nisi maiores qui sint placeat omnis suscipit adipisci minima quo!"
+        ],
+        [
+            "title" => "Judul Post Kedua",
+            "slug" => "judul-post-kedua",
+            "author" => "Annetha Xevian Nayara",
+            "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto commodi ipsa provident reiciendis temporibus perferendis doloremque cum ex blanditiis a laborum magnam, ipsum odio repellendus cumque quos ad quia at odit ratione. Consequuntur, quisquam natus. Enim voluptatem, doloribus praesentium veniam sequi ipsa eaque ratione maxime repudiandae harum cupiditate non a culpa eveniet natus veritatis voluptatibus commodi quae sed nobis repellat! Porro doloribus, modi consequatur fugiat eaque minima voluptatibus itaque nulla enim consequuntur, optio aperiam exercitationem laboriosam, voluptate deleniti fuga ratione commodi hic. Facilis deleniti aperiam quod minima explicabo, saepe tempore dolor. Reiciendis libero beatae voluptatibus ea, a perferendis dicta hic."
+        ],
+    ];
+
+    public static function all()
+    {
+        return collect(self::$blog_posts);
+    }
+
+    public static function find($slug)
+    {
+        $posts = static::all();
+        return $posts->firstWhere('slug', $slug);
+    }
+}
